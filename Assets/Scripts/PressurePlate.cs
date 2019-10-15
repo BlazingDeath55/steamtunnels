@@ -10,13 +10,14 @@ public class PressurePlate : MonoBehaviour
     public UnityAction Pressure_Plate_Deactivated;
 
     public int req_weight;
-    public List<Base_Entity> objects_on_me = new List<Base_Entity>();
+    public List<GameObject> objects_on_me = new List<GameObject>();
  
 
     public bool checkPressure() {
         int total = 0;
-        foreach (Base_Entity b in objects_on_me) {
-            total += b.Get_Weight();
+        foreach (GameObject b in objects_on_me) {
+            total += b.GetComponent<Base_Entity>().Get_Weight();
+            
         }
 
         bool check = total > req_weight;
@@ -34,12 +35,12 @@ public class PressurePlate : MonoBehaviour
         
     }
 
-    public void addObject(Base_Entity b) {
+    public void addObject(GameObject b) {
         objects_on_me.Add(b);
         checkPressure();
     }
 
-    public void removeObject(Base_Entity b) {
+    public void removeObject(GameObject b) {
         objects_on_me.Remove(b);
         checkPressure();
     }
