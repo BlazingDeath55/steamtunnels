@@ -7,6 +7,7 @@ public class Drone : MonoBehaviour
 
     private bool isHoldingObject = false;
     private GameObject holdingObject;
+    private float speed = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,11 @@ public class Drone : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void FixedUpdate()
+    {
+        MotionUpdate();
     }
 
     public void OnCollisionStay2D(Collision2D collision)
@@ -63,4 +69,13 @@ public class Drone : MonoBehaviour
         }
         
     }
+
+    void MotionUpdate()
+    {
+        float xDir = Input.GetAxis("Horizontal");
+        float yDir = Input.GetAxis("Vertical");
+        Rigidbody2D rbd = GetComponent<Rigidbody2D>();
+        rbd.AddForce(new Vector2(xDir, yDir) * speed);
+    }
+
 }
