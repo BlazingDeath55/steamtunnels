@@ -7,7 +7,7 @@ public class Drone : MonoBehaviour
 
     private bool isHoldingObject = false;
     private GameObject holdingObject;
-    private float speed = 1f;
+    public float speed = 50f, maxSpeed = 10, timeframe = 7, thresholdSpeed = 0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,11 @@ public class Drone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(holdingObject);
+        if (Input.GetMouseButtonDown(0))
+        {
+            toggleHolding();
+        }
     }
 
     private void FixedUpdate()
@@ -25,24 +29,19 @@ public class Drone : MonoBehaviour
         MotionUpdate();
     }
 
-    public void OnCollisionStay2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (collision.gameObject.GetComponent<PickableObject>())
-            {
-                toggleHolding(collision.gameObject);
-            }
-            else if (collision.gameObject.GetComponent<PressurePlate>())
-            {
-                togglePressurePlate(collision.gameObject);
-            }
-        }
+        holdingObject = collision.gameObject;
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        holdingObject = null;
     }
 
     void togglePressurePlate(GameObject go) {
         
-        toggleHolding(holdingObject);
+        toggleHolding();
 
         if (!isHoldingObject)
         {
@@ -54,20 +53,23 @@ public class Drone : MonoBehaviour
         
     }
 
-    void toggleHolding(GameObject go) {
-
-        isHoldingObject = !isHoldingObject;
+    void toggleHolding() {
 
         if (isHoldingObject)
         {
-            go.transform.SetParent(this.transform, false);
-            holdingObject = go;
-        }
-        else {
-            go.transform.SetParent(null, true);
+            this.transform.GetComponentInChildren<PickableObject>().transform.SetParent(null, true);
             holdingObject = null;
+            isHoldingObject = !isHoldingObject;
         }
-        
+        else
+        {
+            if (holdingObject != null && holdingObject.GetComponent<PickableObject>()) {
+                holdingObject.transform.SetParent(this.transform, true);
+                Vector3 myT = this.transform.position;
+                holdingObject.transform.position = new Vector3(myT.x, myT.y, myT.z + 2);
+                isHoldingObject = !isHoldingObject;
+            }
+        }
     }
 
     void MotionUpdate()
@@ -75,7 +77,27 @@ public class Drone : MonoBehaviour
         float xDir = Input.GetAxis("Horizontal");
         float yDir = Input.GetAxis("Vertical");
         Rigidbody2D rbd = GetComponent<Rigidbody2D>();
-        rbd.AddForce(new Vector2(xDir, yDir) * speed);
+        Vector2 inputVector = new Vector2(xDir, yDir);
+        /*
+        rbd.AddForce(inputVector * speed);
+        //CAPS VELOCITY
+        if (rbd.velocity.magnitude > maxSpeed)
+        {
+            rbd.velocity = rbd.velocity.normalized * maxSpeed;
+        }
+        //DECCELERATES
+        if(inputVector.magnitude < 0.1f)
+        {
+          //  Debug.Log(rbd.velocity);
+            rbd.AddForce(-rbd.velocity * timeframe);
+
+            if (rbd.velocity.magnitude <= thresholdSpeed) {
+                rbd.velocity = Vector2.zero;
+            }
+        }
+        */
+        rbd.velocity = inputVector * maxSpeed;
+
     }
 
 }
