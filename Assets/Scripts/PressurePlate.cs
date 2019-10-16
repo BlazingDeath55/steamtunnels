@@ -21,6 +21,7 @@ public class PressurePlate : MonoBehaviour
         }
 
         bool check = total > req_weight;
+        //Debug.Log(check);
 
         if (check)
         {

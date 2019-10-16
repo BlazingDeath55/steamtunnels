@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Drone : MonoBehaviour
 {
+
+    public UnityAction ButtonPressed;
 
     private bool isHoldingObject = false;
     private GameObject holdingObject;
@@ -17,9 +20,11 @@ public class Drone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(holdingObject);
-        if (Input.GetMouseButtonDown(0))
+        //Debug.Log(holdingObject);
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
+            if(!isHoldingObject)
+                ButtonPressed();
             toggleHolding();
         }
     }
@@ -39,27 +44,20 @@ public class Drone : MonoBehaviour
         holdingObject = null;
     }
 
-    void togglePressurePlate(GameObject go) {
-        
-        toggleHolding();
 
-        if (!isHoldingObject)
-        {
-            go.GetComponent<PressurePlate>().addObject(go);
-        }
-        else {
-            go.GetComponent<PressurePlate>().removeObject(go);
-        }
-        
+    void CheckPressurePlate() {
+        this.transform.GetComponentInChildren<PickableObject>().CheckPlateBelow();
     }
 
     void toggleHolding() {
-
+        
         if (isHoldingObject)
         {
+            CheckPressurePlate();
             this.transform.GetComponentInChildren<PickableObject>().transform.SetParent(null, true);
             holdingObject = null;
             isHoldingObject = !isHoldingObject;
+
         }
         else
         {
@@ -68,6 +66,7 @@ public class Drone : MonoBehaviour
                 Vector3 myT = this.transform.position;
                 holdingObject.transform.position = new Vector3(myT.x, myT.y, myT.z + 2);
                 isHoldingObject = !isHoldingObject;
+                CheckPressurePlate();
             }
         }
     }
