@@ -15,6 +15,8 @@ public class MapObject : MonoBehaviour
     {
         myMap = GameObject.FindObjectOfType<MapManager>();
         myDrone = GameObject.FindObjectOfType<Drone>();
+
+        myDrone.ButtonPressed += PlayLevel;
     }
 
     // Update is called once per frame
@@ -26,7 +28,12 @@ public class MapObject : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && unlocked) { 
+    }
+
+    public void PlayLevel() {
+
+        if (unlocked)
+        {
             // play level 
         }
     }

@@ -18,8 +18,8 @@ public class MapManager : MonoBehaviour
         {
             numberOfUnlockedLevels = PlayerPrefs.GetInt("unlockedLevels");
         }
-        
 
+        myDrone.ButtonPressed += DisplayMapCard;
         updateLevels();
         InvokeRepeating("refreshClosestMap", 0.05f, 0.25f);
     }
@@ -27,12 +27,11 @@ public class MapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) { 
-            
-        }
+        
     }
 
     private void DisplayMapCard() {
+        //Debug.Log(Vector3.Distance(closest.transform.position, myDrone.transform.position));
         if (Vector3.Distance(closest.transform.position, myDrone.transform.position) < RangeToShow) {
             closest.showInfoCard();
         }
