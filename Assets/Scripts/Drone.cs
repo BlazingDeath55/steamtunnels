@@ -7,7 +7,7 @@ public class Drone : MonoBehaviour
 {
 
     public UnityAction ButtonPressed;
-
+    public string horizontalAxis, verticalAxis;
     private bool isHoldingObject = false;
     private GameObject holdingObject;
     public float speed = 50f, maxSpeed = 10, timeframe = 7, thresholdSpeed = 0.5f;
@@ -73,8 +73,8 @@ public class Drone : MonoBehaviour
 
     void MotionUpdate()
     {
-        float xDir = Input.GetAxis("Horizontal");
-        float yDir = Input.GetAxis("Vertical");
+        float xDir = Input.GetAxis(horizontalAxis);
+        float yDir = Input.GetAxis(verticalAxis);
         Rigidbody2D rbd = GetComponent<Rigidbody2D>();
         Vector2 inputVector = new Vector2(xDir, yDir);
         /*
