@@ -76,7 +76,7 @@ public class Drone : MonoBehaviour
         float xDir = Input.GetAxis(horizontalAxis);
         float yDir = Input.GetAxis(verticalAxis);
         Rigidbody2D rbd = GetComponent<Rigidbody2D>();
-        Vector2 inputVector = new Vector2(xDir, yDir);
+        Vector2 inputVector = new Vector2(xDir, yDir).normalized;
         /*
         rbd.AddForce(inputVector * speed);
         //CAPS VELOCITY

@@ -263,6 +263,21 @@ PrefabInstance:
       propertyPath: verticalAxis
       value: Vertical_2
       objectReference: {fileID: 0}
+    - target: {fileID: 7926449762278423185, guid: 50ff138608a25b043a0d8d4197d8fa8d,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.039215688
+      objectReference: {fileID: 0}
+    - target: {fileID: 7926449762278423185, guid: 50ff138608a25b043a0d8d4197d8fa8d,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 7926449762278423185, guid: 50ff138608a25b043a0d8d4197d8fa8d,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.21071196
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50ff138608a25b043a0d8d4197d8fa8d, type: 3}
 --- !u!1001 &485610365
