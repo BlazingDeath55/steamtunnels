@@ -11,10 +11,14 @@ public class Drone : MonoBehaviour
     private bool isHoldingObject = false;
     private GameObject holdingObject;
     public float speed = 50f, maxSpeed = 10, timeframe = 7, thresholdSpeed = 0.5f;
+
+    Transform spriteDeformation;
+    Vector3 baseScale;
     // Start is called before the first frame update
     void Start()
     {
-        
+        spriteDeformation = GetComponent<Transform>().GetChild(0);
+        baseScale = spriteDeformation.localScale;
     }
 
     // Update is called once per frame
@@ -95,6 +99,8 @@ public class Drone : MonoBehaviour
             }
         }
         */
+        //Vector2 deformationVector = 0.15f * inputVector;
+        //spriteDeformation.localScale = new Vector3(baseScale.x * (1-Mathf.Abs(deformationVector.x)), baseScale.y * (1-Mathf.Abs(deformationVector.y)));
         rbd.velocity = inputVector * maxSpeed;
 
     }
