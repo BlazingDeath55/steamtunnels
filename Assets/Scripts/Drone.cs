@@ -7,30 +7,33 @@ public class Drone : MonoBehaviour
 {
 
     public UnityAction ButtonPressed;
-    public string horizontalAxis, verticalAxis;
+    public string horizontalAxis, verticalAxis, pickupAxis;
     private bool isHoldingObject = false;
     private GameObject holdingObject;
     public float speed = 50f, maxSpeed = 10, timeframe = 7, thresholdSpeed = 0.5f;
+    float prevPickupVal;
 
-    Transform spriteDeformation;
-    Vector3 baseScale;
+    //Transform spriteDeformation;
+    //Vector3 baseScale;
     // Start is called before the first frame update
     void Start()
     {
-        spriteDeformation = GetComponent<Transform>().GetChild(0);
-        baseScale = spriteDeformation.localScale;
+        //spriteDeformation = GetComponent<Transform>().GetChild(0);
+        //baseScale = spriteDeformation.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         //Debug.Log(holdingObject);
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetAxis(pickupAxis) > 0.01 && prevPickupVal < 0.01)
         {
-            if(!isHoldingObject)
-                ButtonPressed();
+            //if(!isHoldingObject)
+                //ButtonPressed();
             toggleHolding();
         }
+        prevPickupVal = Input.GetAxis(pickupAxis);
     }
 
     private void FixedUpdate()
