@@ -9,6 +9,8 @@ public class PressurePlate : MonoBehaviour
     public UnityAction Pressure_Plate_Activated;
     public UnityAction Pressure_Plate_Deactivated;
 
+    public Sprite press, unpress;
+
     public int req_weight;
     public List<GameObject> objects_on_me = new List<GameObject>();
  
@@ -26,9 +28,11 @@ public class PressurePlate : MonoBehaviour
         if (check)
         {
             Pressure_Plate_Activated();
+            spritePress();
         }
         else {
             Pressure_Plate_Deactivated();
+            spriteUnpress();
         }
 
         return check;
@@ -44,5 +48,14 @@ public class PressurePlate : MonoBehaviour
     public void removeObject(GameObject b) {
         objects_on_me.Remove(b);
         checkPressure();
+    }
+
+    void spritePress() {
+        GetComponentInChildren<SpriteRenderer>().sprite = press;
+    }
+
+    void spriteUnpress()
+    {
+        GetComponentInChildren<SpriteRenderer>().sprite = unpress;
     }
 }
