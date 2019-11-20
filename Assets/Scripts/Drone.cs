@@ -10,35 +10,37 @@ public class Drone : MonoBehaviour
     public string horizontalAxis, verticalAxis, pickupAxis;
     private bool isHoldingObject = false;
     private GameObject holdingObject;
-    public float speed = 50f, maxSpeed = 10, timeframe = 7, thresholdSpeed = 0.5f;
+    public float  maxSpeed = 10;
     float prevPickupVal;
 
-    //Transform spriteDeformation;
-    //Vector3 baseScale;
+    public bool tutorialFrozen;
+
     // Start is called before the first frame update
     void Start()
     {
-        //spriteDeformation = GetComponent<Transform>().GetChild(0);
-        //baseScale = spriteDeformation.localScale;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        //Debug.Log(holdingObject);
-        if (Input.GetAxis(pickupAxis) > 0.01 && prevPickupVal < 0.01)
+        if (!tutorialFrozen)
         {
-            //if(!isHoldingObject)
+            //Debug.Log(holdingObject);
+            if (Input.GetAxis(pickupAxis) > 0.01 && prevPickupVal < 0.01)
+            {
+                //if(!isHoldingObject)
                 //ButtonPressed();
-            toggleHolding();
+                toggleHolding();
+            }
+            prevPickupVal = Input.GetAxis(pickupAxis);
         }
-        prevPickupVal = Input.GetAxis(pickupAxis);
     }
 
     private void FixedUpdate()
     {
-        MotionUpdate();
+        if(!tutorialFrozen)
+            MotionUpdate();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -84,28 +86,7 @@ public class Drone : MonoBehaviour
         float yDir = Input.GetAxis(verticalAxis);
         Rigidbody2D rbd = GetComponent<Rigidbody2D>();
         Vector2 inputVector = new Vector2(xDir, yDir).normalized;
-        /*
-        rbd.AddForce(inputVector * speed);
-        //CAPS VELOCITY
-        if (rbd.velocity.magnitude > maxSpeed)
-        {
-            rbd.velocity = rbd.velocity.normalized * maxSpeed;
-        }
-        //DECCELERATES
-        if(inputVector.magnitude < 0.1f)
-        {
-          //  Debug.Log(rbd.velocity);
-            rbd.AddForce(-rbd.velocity * timeframe);
-
-            if (rbd.velocity.magnitude <= thresholdSpeed) {
-                rbd.velocity = Vector2.zero;
-            }
-        }
-        */
-        //Vector2 deformationVector = 0.15f * inputVector;
-        //spriteDeformation.localScale = new Vector3(baseScale.x * (1-Mathf.Abs(deformationVector.x)), baseScale.y * (1-Mathf.Abs(deformationVector.y)));
         rbd.velocity = inputVector * maxSpeed;
-
     }
 
 }
