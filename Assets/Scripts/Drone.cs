@@ -29,8 +29,8 @@ public class Drone : MonoBehaviour
             //Debug.Log(holdingObject);
             if (Input.GetAxis(pickupAxis) > 0.01 && prevPickupVal < 0.01)
             {
-                //if(!isHoldingObject)
-                //ButtonPressed();
+                if(!isHoldingObject)
+                    ButtonPressed();
                 toggleHolding();
             }
             prevPickupVal = Input.GetAxis(pickupAxis);
