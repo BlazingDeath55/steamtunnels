@@ -16,7 +16,7 @@ public class GameLoad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxis("Pickup1") > 0.01)
+        if(Input.GetAxis("Pickup1") > 0.01 || Input.GetAxis("Pickup2") > 0.01)
         {
             SceneManager.LoadScene(scene_num);
         }
