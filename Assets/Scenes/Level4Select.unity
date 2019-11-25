@@ -921,7 +921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctPassword: password
-  whichLvlLoad: 4
+  whichLvlLoad: 7
 --- !u!1001 &1450793374
 PrefabInstance:
   m_ObjectHideFlags: 0
