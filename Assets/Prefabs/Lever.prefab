@@ -205,4 +205,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4cccded63e439f419aa24a088ed2f91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thresholdDistance: 2
+  thresholdDistance: 0.5
