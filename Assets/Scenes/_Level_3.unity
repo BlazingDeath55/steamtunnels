@@ -922,6 +922,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd9322543e0dfa04fb3617fcb3dda341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &672468824 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8981099349413408295, guid: eddc863c70508334aa32c193032f9cbb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2130546748}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975ed9a326710ed45ae9d431084ef45d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &873356138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1067,6 +1079,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4967884700163270790, guid: ef88075ead337e14da65217704e4dfd4,
+        type: 3}
+      propertyPath: myD
+      value: 
+      objectReference: {fileID: 672468824}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef88075ead337e14da65217704e4dfd4, type: 3}
 --- !u!1001 &982451187
@@ -1506,15 +1523,15 @@ PrefabInstance:
       propertyPath: myV
       value: 
       objectReference: {fileID: 2132419796}
-    - target: {fileID: 8162822688294981425, guid: 9af45fa59164a394cbed9ff66bb458af,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 8162822689775816884, guid: 9af45fa59164a394cbed9ff66bb458af,
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162822688294981425, guid: 9af45fa59164a394cbed9ff66bb458af,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af45fa59164a394cbed9ff66bb458af, type: 3}
@@ -1540,6 +1557,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f663ddab6f6cb1a4e8712172370ccf41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1458682328 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5101730258438810640, guid: f3cfd89659697ad478943805e98b0617,
+    type: 3}
+  m_PrefabInstance: {fileID: 873356138}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975ed9a326710ed45ae9d431084ef45d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1517131778
@@ -1608,6 +1637,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779425253, guid: d4161400804b78d498b1ef89fd2779e4, type: 3}
+      propertyPath: myD
+      value: 
+      objectReference: {fileID: 1458682328}
+    - target: {fileID: 1779425253, guid: d4161400804b78d498b1ef89fd2779e4, type: 3}
+      propertyPath: thresholdDistance
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4161400804b78d498b1ef89fd2779e4, type: 3}
@@ -1688,11 +1725,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.22
       objectReference: {fileID: 0}
-    - target: {fileID: 8162822688294981425, guid: 9af45fa59164a394cbed9ff66bb458af,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 8162822688294981436, guid: 9af45fa59164a394cbed9ff66bb458af,
         type: 3}
       propertyPath: m_Offset.x
@@ -1711,7 +1743,12 @@ PrefabInstance:
     - target: {fileID: 8162822689775816884, guid: 9af45fa59164a394cbed9ff66bb458af,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13
+      value: 0.043
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162822688294981425, guid: 9af45fa59164a394cbed9ff66bb458af,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af45fa59164a394cbed9ff66bb458af, type: 3}
@@ -1797,11 +1834,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.22
       objectReference: {fileID: 0}
-    - target: {fileID: 8162822688294981425, guid: 9af45fa59164a394cbed9ff66bb458af,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 8162822688294981436, guid: 9af45fa59164a394cbed9ff66bb458af,
         type: 3}
       propertyPath: m_Offset.x
@@ -1821,6 +1853,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162822688294981425, guid: 9af45fa59164a394cbed9ff66bb458af,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9af45fa59164a394cbed9ff66bb458af, type: 3}
@@ -2126,6 +2163,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779425253, guid: d4161400804b78d498b1ef89fd2779e4, type: 3}
+      propertyPath: myD
+      value: 
+      objectReference: {fileID: 672468824}
+    - target: {fileID: 1779425253, guid: d4161400804b78d498b1ef89fd2779e4, type: 3}
+      propertyPath: thresholdDistance
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4161400804b78d498b1ef89fd2779e4, type: 3}
@@ -2509,6 +2554,14 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1779425253, guid: d4161400804b78d498b1ef89fd2779e4, type: 3}
+      propertyPath: myD
+      value: 
+      objectReference: {fileID: 1458682328}
+    - target: {fileID: 1779425253, guid: d4161400804b78d498b1ef89fd2779e4, type: 3}
+      propertyPath: thresholdDistance
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4161400804b78d498b1ef89fd2779e4, type: 3}
