@@ -13,7 +13,13 @@ public class PressurePlate : MonoBehaviour
 
     public int req_weight;
     public List<GameObject> objects_on_me = new List<GameObject>();
- 
+
+    AudioSource aud;
+
+    private void Start()
+    {
+        aud = GetComponent<AudioSource>();
+    }
 
     public bool checkPressure() {
         int total = 0;
@@ -52,10 +58,12 @@ public class PressurePlate : MonoBehaviour
 
     void spritePress() {
         GetComponentInChildren<SpriteRenderer>().sprite = press;
+        aud.Play();
     }
 
     void spriteUnpress()
     {
         GetComponentInChildren<SpriteRenderer>().sprite = unpress;
+        aud.Play();
     }
 }

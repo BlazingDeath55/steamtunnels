@@ -8,6 +8,7 @@ public class Valve : MonoBehaviour
     public UnityAction SteamOff, SteamOn;
     public float thresholdDistance = 4f;
     int which;
+    AudioSource aud;
 
     public Drone myD;
 
@@ -16,6 +17,7 @@ public class Valve : MonoBehaviour
     {
         myD.ButtonPressed += OnButton;
         which = 0;
+        aud = GetComponent<AudioSource>();
     }
 
     void OnButton()
@@ -43,5 +45,6 @@ public class Valve : MonoBehaviour
         which++;
         which %= 2;
         transform.GetChild(which).gameObject.SetActive(true);
+        aud.Play();
     }
 }

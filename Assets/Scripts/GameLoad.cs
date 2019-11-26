@@ -10,7 +10,7 @@ public class GameLoad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scene_num = 1;   
+        scene_num = 1;
     }
 
     // Update is called once per frame

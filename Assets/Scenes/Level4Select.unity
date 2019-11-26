@@ -660,7 +660,6 @@ GameObject:
   - component: {fileID: 1050976708}
   - component: {fileID: 1050976707}
   - component: {fileID: 1050976706}
-  - component: {fileID: 1050976709}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -733,23 +732,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1050976709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1050976705}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af55df966d92489429c9a33118b83e70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MapsInLevels:
-  - {fileID: 2006081751}
-  - {fileID: 1785399821}
-  RangeToShow: 6
-  myDrone: {fileID: 0}
 --- !u!1 &1089690573
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,30 +1277,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707809646}
   m_CullTransparentMesh: 0
---- !u!114 &1785399821 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1441724523181327977, guid: ff02729a63e73d34bbbbacbfa9bc9ed6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1565850647}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ce5c2c8a992ae4cb70406530e702e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2006081751 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1441724523181327977, guid: ff02729a63e73d34bbbbacbfa9bc9ed6,
-    type: 3}
-  m_PrefabInstance: {fileID: 1450793374}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ce5c2c8a992ae4cb70406530e702e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2046995291
 GameObject:
   m_ObjectHideFlags: 0
